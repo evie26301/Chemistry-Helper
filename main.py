@@ -507,9 +507,4 @@ test_invalid_molarity()
 test_invalid_molar_mass()
 
 test_choose()
-
-print("All unit tests passed!")
-
-
-
 start_server(State("molar mass", 0.0, False, [], False, '', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
