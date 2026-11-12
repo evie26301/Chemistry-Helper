@@ -1,6 +1,5 @@
 from drafter import *
 from dataclasses import dataclass
-from bakery import assert_equal
 
 
 set_website_title("Chemistry-Helper")
