@@ -2,15 +2,6 @@ from drafter import *
 from dataclasses import dataclass
 
 
-set_website_title("Chemistry-Helper")
-set_site_information(
-    author="Evelyn Woosley",
-    description="This Chemistry Helpers helps users to compute basic chemical calculations such as molar mass, percent yield, grams to mols, mols to grams, and molarity using user input",
-    sources='https://github.com/user-attachments/files/34758974/Final.Code.LLM.Documentation.pdf',
-    planning='https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf',
-    links=['https://github.com/evie26301/Chemistry-Helper.git', 'https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf', 'https://pubchem.ncbi.nlm.nih.gov/periodic-table/']
-)
-set_website_framed(False)
 
 @dataclass
 class Element:
@@ -468,6 +459,17 @@ test_invalid_molar_mass()
 test_choose()
 
 print("All unit tests passed!")
+
+set_website_title("Chemistry-Helper")
+set_site_information(
+    author="Evelyn Woosley",
+    description="This Chemistry Helpers helps users to compute basic chemical calculations such as molar mass, percent yield, grams to mols, mols to grams, and molarity using user input",
+    sources='https://github.com/user-attachments/files/34758974/Final.Code.LLM.Documentation.pdf',
+    planning='https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf',
+    links=['https://github.com/evie26301/Chemistry-Helper.git', 'https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf', 'https://pubchem.ncbi.nlm.nih.gov/periodic-table/']
+)
+
+
 
 start_server(State("molar mass", 0.0, [], False, '', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
 
