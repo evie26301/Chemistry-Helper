@@ -468,7 +468,8 @@ set_site_information(
     planning='https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf',
     links=['https://github.com/evie26301/Chemistry-Helper.git', 'https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf', 'https://pubchem.ncbi.nlm.nih.gov/periodic-table/']
 )
-
+hide_debug_information()
+set_website_framed(False)
 
 
 start_server(State("molar mass", 0.0, [], False, '', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
