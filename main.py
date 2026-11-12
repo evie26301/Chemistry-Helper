@@ -17,7 +17,6 @@ class State:
     calculation_type: str
     result: float
     elements: list[Element]
-    example_loaded: bool
     element_data: str
     actual_yield: float
     theoretical_yield: float
