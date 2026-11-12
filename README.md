@@ -10,7 +10,7 @@ Chemistry-Helper Documentation
 [Final Code LLM Documentation.pdf](https://github.com/user-attachments/files/34758974/Final.Code.LLM.Documentation.pdf)
 
 #Website Explination
-[Final Code Website walkthrough.mp4]https://drive.google.com/file/d/1pfZm2QnShR_ETkgf7n2TQjTNWC9F8gwa/view?usp=sharing
+[Final Code Website walkthrough.mp4](https://drive.google.com/file/d/1pfZm2QnShR_ETkgf7n2TQjTNWC9F8gwa/view?usp=sharing).
 
 
 
