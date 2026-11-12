@@ -2,10 +2,10 @@ from drafter import *
 from dataclasses import dataclass
 from bakery import assert_equal
 set_site_information(
-    author= "Evelyn Woosley",
-    description= "This Chemistry Helpers helps users to compute basic chemical calculations such as molar mass, percent yield, grams to mols, mols to grams, and molarity using user input",
-    planning= ['https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf','https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf'],
-    links= ['https://github.com/evie26301/Chemistry-Helper.git'],
+    author="Evelyn Woosley",
+    description="This Chemistry Helpers helps users to compute basic chemical calculations such as molar mass, percent yield, grams to mols, mols to grams, and molarity using user input",
+    planning=['https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf','https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf'],
+    links=['https://github.com/evie26301/Chemistry-Helper.git'],
     sources=['https://github.com/user-attachments/files/34758974/Final.Code.LLM.Documentation.pdf']
     )
 
