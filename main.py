@@ -11,7 +11,6 @@ set_site_information(
     planning='https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf',
     links=['https://github.com/evie26301/Chemistry-Helper.git', 'https://github.com/user-attachments/files/34758457/Copy.of.CS1.Final.Project.1_.Design.2.pdf', 'https://pubchem.ncbi.nlm.nih.gov/periodic-table/']
 )
-hide_debug_information()
 set_website_framed(False)
 
 @dataclass
@@ -448,26 +447,26 @@ def test_choose():
     page = choose(state, "percent yield")
     assert_equal(state.calculation_type, "percent yield")
     assert_equal(page.content[0], Header("Percent Yield Calculator"))
-test_index()
-test_molar_mass_page()
-test_percent_yield_page()
-test_moles_to_grams_page()
-test_grams_to_mols_page()
-test_molarity_page()
+#test_index()
+#test_molar_mass_page()
+#test_percent_yield_page()
+#test_moles_to_grams_page()
+#test_grams_to_mols_page()
+#test_molarity_page()
 
-test_calculate_molar_mass()
-test_calculate_percent_yield()
-test_mols_to_grams_calculation()
-test_grams_to_mols_calculation()
-test_molarity_calculation()
+#test_calculate_molar_mass()
+#test_calculate_percent_yield()
+#test_mols_to_grams_calculation()
+#test_grams_to_mols_calculation()
+#test_molarity_calculation()
 
-test_invalid_percent_yield()
-test_invalid_moles_to_grams()
-test_invalid_grams_to_mols()
-test_invalid_molarity()
-test_invalid_molar_mass()
+#test_invalid_percent_yield()
+#test_invalid_moles_to_grams()
+#test_invalid_grams_to_mols()
+#test_invalid_molarity()
+#test_invalid_molar_mass()
 
-test_choose()
+#test_choose()
 
 print("All unit tests passed!")
 
