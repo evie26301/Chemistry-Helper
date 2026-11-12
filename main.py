@@ -1,6 +1,8 @@
 from drafter import *
 from dataclasses import dataclass
 from bakery import assert_equal
+
+
 set_website_title("Chemistry-Helper")
 set_site_information(
     author="Evelyn Woosley",
@@ -25,7 +27,6 @@ class Element:
 class State:
     calculation_type: str
     result: float
-    show_steps: bool
     elements: list[Element]
     example_loaded: bool
     element_data: str
@@ -59,6 +60,7 @@ def index(state: State) -> Page:
         Button('Choose', "choose")
 
     ])
+
 
 @route
 def choose(state: State, choice: str) -> Page:
@@ -120,7 +122,7 @@ def calculate_molar_mass(state: State, element_data: str) -> Page:
         state (State): The current state of the application.
         element_data (str): The user input string data describing an element including elemtn name, molar mass, and frequency.  
     Returns:
-        Page: A calculation result page returning the calculated answer for the moalr mass based on the user input data.
+        Page: A molar mass calcultion page prompting users to input an element name, atomic mass, and frequency.
     """
     state.element_data = element_data
     state.elements = []
@@ -209,7 +211,7 @@ def calculate_percent_yield(state: State, actual_yield: float, theoretical_yield
         actual_yield (float): The user input actual chemical yield as a float.
         theroretical_yield (float): The user input theroretical chemical yield as a float.
     Returns:
-        Page: A calculation result page returning the calculated answer for the percent yiled based on the user input data.
+        Page: A percent yield calcultion page prompting users to input an actual and theroretical yield.
     """
     if actual_yield < 0 or theoretical_yield <= 0:
         return Page(state, [
@@ -263,7 +265,7 @@ def mols_to_grams_calcualtion(state: State, moles: float, molar_mass: float) -> 
         moles (float): The user input moles of an element or compound as a float.
         molar_mass (float): The user input molar mass of an element or compound as a float.
     Returns:
-        Page: A calculation result page returning the calculated answer for the mols to grams conversion based on the user input data.
+        Page: A moles to grams conversion calculation page prompting users to input an actual and theroretical yield.
     """
     if moles < 0 or molar_mass <= 0:
         return Page(state, [
@@ -287,37 +289,16 @@ def mols_to_grams_calcualtion(state: State, moles: float, molar_mass: float) -> 
 
 @route
 def grams_to_mols(state: State) -> Page:
-    """
-    Returns the page for the grams to mols conversion to users prompting them to input the grams and molar mass of their element or compound.
-
-    Args:
-        state (State): The current state of the application.
-    Returns:
-        Page: A mols to grams conversion calcultion page prompting users to input the moles and molar mass of their element or compound.
-    """
     return Page(state, [
         Header('grams to moles conversion calculator'),
-        'Enter the grams of an element or compund: ',
+        'Enter the grams and molar mass of an element or compund',
         TextBox("grams", state.grams),
-        'Enter the molar mass of an element or compund: ',
         TextBox('molar_mass', state.molar_mass),
         Button("Convert grams to mols!", "grams_to_mols_calcultion"),
         Button("Home", "index")
     ])
 @route
 def grams_to_mols_calcultion(state: State, grams: float, molar_mass: float) -> Page:
-    """
-    Implments the logic of the grams to mols conversion calcualtion intaking the user input of
-    a non-negative molar mass and a gram weight and dividing the gram weight by the molar mass of the element or compound
-    ultimatley returning the new mol amount of the element or compount. 
-    
-    Args:
-        state (State): The current state of the application.
-        grams (float): The user input grams of an element or compound as a float.
-        molar_mass (float): The user input molar mass of an element or compound as a float.
-    Returns:
-        Page: A calculation result page returning the calculated answer for the grams to mols conversion based on the user input data.
-    """
     if grams < 0 or molar_mass <= 0:
         return Page(state, [
             Header("Invalid Input"),
@@ -327,6 +308,7 @@ def grams_to_mols_calcultion(state: State, grams: float, molar_mass: float) -> P
 
     state.grams = grams
     state.molar_mass = molar_mass
+
     state.result = grams / molar_mass
 
     return Page(state, [
@@ -339,37 +321,16 @@ def grams_to_mols_calcultion(state: State, grams: float, molar_mass: float) -> P
 
 @route
 def molarity(state: State) -> Page:
-    """
-    Returns the page for the molarity calcualtion prompting users to input the moles of solute and liters of solution.
-
-    Args:
-        state (State): The current state of the application.
-    Returns:
-        Page: A molarity calcultion page prompting users to input the moles of solute and liters of solution.
-    """
     return Page(state, [
         Header('Molarity Calculator'),
-        'Enter the moles of solute: ',
+        'Enter the moles of solute and liters of solution.',
         TextBox("moles", state.moles),
-        'Enter the liters of solution: ',
         TextBox('liters', state.liters),
         Button("Calculate molarity!", "molarity_calculation"),
         Button("Home", "index")
     ])
 @route
 def molarity_calculation(state: State, moles: float, liters: float) -> Page:
-    """
-    Implments the logic of the molarity calcualtion intaking the user input of
-    a non-negative moles of solute amount and a the liters of solution and dividing the mole amount by the liters of solution
-    ultimatley returning the molarity amount.  
-    
-    Args:
-        state (State): The current state of the application.
-        moles (float): The user input moles of solute.
-        liters (float): The user input liters of solution.
-    Returns:
-        Page: A calculation result page returning the calculated answer for molarity based on the user input data.
-    """
     if moles < 0 or liters <= 0:
         return Page(state, [
             Header("Invalid Input"),
@@ -507,4 +468,11 @@ test_invalid_molarity()
 test_invalid_molar_mass()
 
 test_choose()
-start_server(State("molar mass", 0.0, False, [], False, '', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
+
+print("All unit tests passed!")
+
+start_server(State("molar mass", 0.0, [], False, '', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0))
+
+
+
+
