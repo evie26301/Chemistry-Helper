@@ -1,6 +1,7 @@
 from drafter import *
 from dataclasses import dataclass
 from bakery import assert_equal
+set_website_title("Chemistry-Helper")
 set_site_information(
     author="Evelyn Woosley",
     description="This Chemistry Helpers helps users to compute basic chemical calculations such as molar mass, percent yield, grams to mols, mols to grams, and molarity using user input",
@@ -8,7 +9,8 @@ set_site_information(
     links=['https://github.com/evie26301/Chemistry-Helper.git'],
     sources=['https://github.com/user-attachments/files/34758974/Final.Code.LLM.Documentation.pdf']
     )
-
+hide_debug_information()
+set_website_framed(False)
 
 @dataclass
 class Element:
