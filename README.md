@@ -1,5 +1,5 @@
-# drafter-deployment-template-v1
-Your first Drafter website!
+#Chemistry-Helper
+
 
 [Copy of CS1 Final Project 0_ Pick a Problem (3).pdf](https://github.com/user-attachments/files/34758459/Copy.of.CS1.Final.Project.0_.Pick.a.Problem.3.pdf)
 
