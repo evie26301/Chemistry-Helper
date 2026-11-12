@@ -387,7 +387,126 @@ def molarity_calculation(state: State, moles: float, liters: float) -> Page:
         Button("Home", "index")
     ])
 
+def make_state():
+    return State(
+        "molar mass",
+        0.0,
+        [],
+        False,
+        '',
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    )
 
+def test_index():
+    state = make_state()
+    page = index(state)
+    assert_equal(page.content[0], Header("Chemistry Helper"))
+
+def test_molar_mass_page():
+    state = make_state()
+    page = molar_mass(state)
+    assert_equal(page.content[0], Header("Molar Mass Calculator"))
+
+def test_percent_yield_page():
+    state = make_state()
+    page = percent_yield(state)
+    assert_equal(page.content[0], Header("Percent Yield Calculator"))
+
+def test_moles_to_grams_page():
+    state = make_state()
+    page = mols_to_grams(state)
+    assert_equal(page.content[0], Header("Moles to grams conversion calculator"))
+
+def test_grams_to_mols_page():
+    state = make_state()
+    page = grams_to_mols(state)
+    assert_equal(page.content[0], Header("grams to moles conversion calculator"))
+
+def test_molarity_page():
+    state = make_state()
+    page = molarity(state)
+    assert_equal(page.content[0], Header("Molarity Calculator"))
+def test_calculate_molar_mass():
+    state = make_state()
+    calculate_molar_mass(state, "H, 1.008, 2\nO, 15.999, 1")
+    assert_equal(state.result, 18.015)
+    assert_equal(len(state.elements), 2)
+
+def test_calculate_percent_yield():
+    state = make_state()
+    calculate_percent_yield(state, 8.0, 10.0)
+    assert_equal(state.result, 80.0)
+
+def test_mols_to_grams_calculation():
+    state = make_state()
+    mols_to_grams_calcualtion(state, 2.0, 18.0)
+    assert_equal(state.result, 36.0)
+
+def test_grams_to_mols_calculation():
+    state = make_state()
+    grams_to_mols_calcultion(state, 36.0, 18.0)
+    assert_equal(state.result, 2.0)
+
+def test_molarity_calculation():
+    state = make_state()
+    molarity_calculation(state, 2.0, 4.0)
+    assert_equal(state.result, 0.5)
+def test_invalid_percent_yield():
+    state = make_state()
+    page = calculate_percent_yield(state, 5.0, 0.0)
+    assert_equal(page.content[0], Header("Invalid Input"))
+
+def test_invalid_moles_to_grams():
+    state = make_state()
+    page = mols_to_grams_calcualtion(state, -2.0, 18.0)
+    assert_equal(page.content[0], Header("Invalid Input"))
+
+def test_invalid_grams_to_mols():
+    state = make_state()
+    page = grams_to_mols_calcultion(state, 36.0, 0.0)
+    assert_equal(page.content[0], Header("Invalid Input"))
+
+def test_invalid_molarity():
+    state = make_state()
+    page = molarity_calculation(state, 2.0, 0.0)
+    assert_equal(page.content[0], Header("Invalid Input"))
+
+def test_invalid_molar_mass():
+    state = make_state()
+    page = calculate_molar_mass(state, "H, -1.008, 2")
+    assert_equal(page.content[0], Header("Invalid Input"))
+def test_choose():
+    state = make_state()
+    page = choose(state, "percent yield")
+    assert_equal(state.calculation_type, "percent yield")
+    assert_equal(page.content[0], Header("Percent Yield Calculator"))
+test_index()
+test_molar_mass_page()
+test_percent_yield_page()
+test_moles_to_grams_page()
+test_grams_to_mols_page()
+test_molarity_page()
+
+test_calculate_molar_mass()
+test_calculate_percent_yield()
+test_mols_to_grams_calculation()
+test_grams_to_mols_calculation()
+test_molarity_calculation()
+
+test_invalid_percent_yield()
+test_invalid_moles_to_grams()
+test_invalid_grams_to_mols()
+test_invalid_molarity()
+test_invalid_molar_mass()
+
+test_choose()
+
+print("All unit tests passed!")
 
 
 
